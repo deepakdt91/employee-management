@@ -1,0 +1,30 @@
+{
+  "name": "employee-management",
+  "version": "1.0.0",
+  "description": "Employee Management Node.js Application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^5.2.1",
+    "mysql2": "^3.23.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepakdt91/employee-management.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/deepakdt91/employee-management/issues"
+  },
+  "homepage": "https://github.com/deepakdt91/employee-management#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
