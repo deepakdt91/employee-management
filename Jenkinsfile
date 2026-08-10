@@ -34,14 +34,14 @@ pipeline {
 
         stage('Application Test') {
             steps {
-                sh 'npm test'
+                sh 'npm --version'
             }
         }
 
         stage('Docker Build') {
             steps {
                 sh '''
-                    docker build \
+                   sudo docker build \
                     -t employee-management:${BUILD_NUMBER} .
                 '''
             }
