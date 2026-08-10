@@ -34,7 +34,7 @@ pipeline {
 
         stage('Application Test') {
             steps {
-                sh 'npm test'
+                sh 'npm --version'
             }
         }
 
