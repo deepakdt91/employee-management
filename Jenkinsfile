@@ -41,7 +41,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 sh '''
-                    docker build \
+                   sudo docker build \
                     -t employee-management:${BUILD_NUMBER} .
                 '''
             }
