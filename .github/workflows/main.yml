@@ -10,7 +10,7 @@ on:
       - master
 
 env:
-  IMAGE_NAME: YOUR_DOCKERHUB_USERNAME/employee-management
+  IMAGE_NAME: april1993/testing
 
 jobs:
 
