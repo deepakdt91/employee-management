@@ -51,5 +51,6 @@ jobs:
 
       - name: Push Docker image
         run: |
+        
           docker push \
             $IMAGE_NAME:${{ github.sha }}
