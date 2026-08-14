@@ -51,6 +51,40 @@ jobs:
 
       - name: Push Docker image
         run: |
+
+
+deploy:
+
+    needs: build-and-test
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Deploy to AWS EC2
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
+          EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+
+        run: |
+
+          echo "$EC2_SSH_KEY" > private_key
+
+          chmod 600 private_key
+
+          ssh \
+            -o StrictHostKeyChecking=no \
+            -i private_key \
+            $EC2_USERNAME@$EC2_HOST \
+            "
+              cd ~/employee &&
+              export IMAGE_TAG=${{ github.sha }} &&
+              docker compose pull app &&
+              docker compose up -d app
+            "
+
+          rm -f private_key
         
           docker push \
             $IMAGE_NAME:${{ github.sha }}
